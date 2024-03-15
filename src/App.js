@@ -21,12 +21,11 @@ function App() {
   async function fetchData(e, searchedPokemon) {
     e.preventDefault();
     setPokemon("");
-
+    let pokemon = searchedPokemon.toLowerCase();
     try {
       setSearched(false);
-
       const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${searchedPokemon}`
+        `https://pokeapi.co/api/v2/pokemon/${pokemon}`
       );
       const data = await response.json();
       setPokemon([data]);
@@ -59,7 +58,6 @@ function App() {
             </button>
           </form>
         </div>
-
         {!pokemon.length > 0 && searched && (
           <>
             <div className="pokeBottom">
@@ -79,7 +77,6 @@ function App() {
                   alt={pokemon[0].name}
                 />
               </div>
-
               <section className="pokeInfo">
                 <div>
                   <h3>{name.toUpperCase()}</h3>
