@@ -38,13 +38,12 @@ function App() {
     }
   }
   useEffect(() => {
-    console.log("pokemon", pokemon);
   }, [pokemon]);
   return (
     <Aligned>
       <div className="pokebola">
         <div className="pokeTop">
-          <h1>Que pokemon você quer pegar?</h1>
+          <h1>Catch a Pokemon</h1>
           <form onSubmit={(e) => fetchData(e, inputValue)}>
             <input
               type="text"
@@ -54,7 +53,7 @@ function App() {
               value={inputValue}
               onChange={handleInputChange}
               list="pokemonsList"
-              placeholder="Nome do Pokemon"
+              placeholder="Pokemon's name"
             />
             <datalist id="pokemonsList">
               {pokemons.map((pokemon, index) => (
@@ -63,7 +62,7 @@ function App() {
             </datalist>
 
             <button type="submit" disabled={inputValue.length == 0}>
-              Capturar
+              Catch
             </button>
           </form>
         </div>
@@ -72,7 +71,7 @@ function App() {
             <div className="pokeBottom">
               {!pokemon[0] && <div className="pokemon"></div>}
               {!pokemon[0] && (
-                <h2>Infelizmente não conheço esse pokemon...</h2>
+                <h2>Sadly, i think this pokemon does'nt exists...</h2>
               )}{" "}
             </div>
           </>
@@ -91,7 +90,7 @@ function App() {
                   <h3>{name.toUpperCase()}</h3>
                 </div>
                 <div>
-                  <h2>Habilidades</h2>
+                  <h2>Habilities</h2>
                   <ul>
                     {pokemon[0].abilities &&
                       pokemon[0].abilities.map((ability) => (
@@ -102,7 +101,7 @@ function App() {
                   </ul>
                 </div>
                 <div>
-                  <h2>Tipo</h2>
+                  <h2>Types</h2>
                   <ul>
                     {pokemon[0].types &&
                       pokemon[0].types.map((types) => (
@@ -111,7 +110,7 @@ function App() {
                   </ul>
                 </div>
                 <div>
-                  <h2>Peso:</h2>
+                  <h2>Weight</h2>
                   <ul>
                     <li>{pokemon[0].weight}</li>
                   </ul>
