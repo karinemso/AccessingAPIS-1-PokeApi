@@ -65,7 +65,7 @@ code {
 .pokebola .pokeBottom .pokeInfo{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   text-align: left;
   justify-content: center;
   gap: 1em;
