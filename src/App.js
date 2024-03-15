@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import pokemons from "./pokemons";
 const Aligned = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,7 +53,15 @@ function App() {
               id="pokemonName"
               value={inputValue}
               onChange={handleInputChange}
+              list="pokemonsList"
+              placeholder="Nome do Pokemon"
             />
+            <datalist id="pokemonsList">
+              {pokemons.map((pokemon, index) => (
+                <option key={index} value={pokemon} />
+              ))}
+            </datalist>
+
             <button type="submit" disabled={inputValue.length == 0}>
               Capturar
             </button>
